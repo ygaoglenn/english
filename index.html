@@ -142,7 +142,7 @@ const hr = now.getHours();
 $('hello').textContent = (hr < 12 ? 'Good morning' : hr < 18 ? 'Good afternoon' : 'Good evening') + ', Glenn';
 
 /* A channel's "uploads" playlist = channel id with UC -> UU. It always starts with the newest video. */
-const uploads = id => 'UU' + id.slice(2);
+const uploads = id => 'UULF' + id.slice(2);
 const embed = id => 'https://www.youtube-nocookie.com/embed/videoseries?list=' + uploads(id) + '&cc_load_policy=1&cc_lang_pref=en&hl=en-GB&rel=0&modestbranding=1';
 const chURL = id => 'https://www.youtube.com/channel/' + id + '/videos';
 const CC = '&sp=EgIoAQ%253D%253D';
