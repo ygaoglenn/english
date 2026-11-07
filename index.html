@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Glenn's Daily English</title>
+<link rel="preconnect" href="https://www.youtube-nocookie.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#14202f;--soft:#5d6577;--line:#e3e0d8;--paper:#f6f3ec;--card:#fff;--navy:#0f2a4a;--red:#c4302b;--gold:#d39b2a;--green:#2f7a4f;--tint:#eef2f8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--navy)}
+.top{background:linear-gradient(120deg,#0b1f38,#16365f 60%,#1d4a7a);color:#fff}
+.top .in{max-width:1240px;margin:0 auto;padding:26px 22px 22px;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-end;justify-content:space-between}
+h1{font-family:Fraunces,Georgia,serif;font-size:36px;line-height:1.1;margin:0}
+.date{opacity:.8;font-size:14px;margin-top:6px}
+.live{display:inline-flex;align-items:center;gap:6px;font:600 11px Inter;letter-spacing:.08em;background:rgba(255,255,255,.12);padding:3px 9px;border-radius:99px;margin-bottom:10px}
+.live:before{content:"";width:7px;height:7px;border-radius:50%;background:#ff4b42;box-shadow:0 0 0 0 rgba(255,75,66,.7);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(255,75,66,0)}100%{box-shadow:0 0 0 0 rgba(255,75,66,0)}}
+.streak{display:flex;align-items:center;gap:12px;font-size:14px}
+.streak b{font-family:Fraunces,serif;font-size:30px;color:var(--gold)}
+.btn{border:1px solid var(--navy);background:var(--navy);color:#fff;border-radius:9px;padding:7px 13px;cursor:pointer;font:600 13px Inter,sans-serif;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn.light{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35);color:#fff}
+.btn.ok{background:var(--green);border-color:var(--green);color:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding:22px 22px 60px}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;margin-bottom:22px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+.sh{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.sh h2{font-family:Fraunces,serif;font-size:24px;margin:0;display:flex;align-items:center;gap:10px}
+.sh h2 .ic{width:34px;height:34px;border-radius:10px;display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:17px}
+.sh p{margin:3px 0 0;color:var(--soft);font-size:14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:5px 13px;font:500 13px Inter;cursor:pointer;color:var(--ink)}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.player{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+@media (max-width:900px){.player{grid-template-columns:1fr}}
+.frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#0b1220}
+.frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.side{display:flex;flex-direction:column;gap:12px}
+.side h3{font-family:Fraunces,serif;font-size:21px;margin:0}
+.pill{display:inline-block;font-size:12px;border:1px solid var(--line);border-radius:99px;padding:1px 9px;margin:0 4px 4px 0;color:var(--soft)}
+.how{background:var(--tint);border-radius:12px;padding:11px 14px;font-size:14px}
+.how ol{margin:4px 0 0;padding-left:20px}
+.note{font-size:13px;color:var(--soft)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.two .sec{margin-bottom:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.card{border-radius:14px;overflow:hidden;text-decoration:none;color:var(--ink);border:1px solid var(--line);display:flex;flex-direction:column;background:var(--card);transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(15,42,74,.12)}
+.card .cv{height:92px;padding:12px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.card .cv b{font-family:Fraunces,serif;font-size:18px;line-height:1.15;font-weight:500}
+.card .cv small{font:600 10px Inter;letter-spacing:.07em;text-transform:uppercase;opacity:.85}
+.card .cv .pl{position:absolute;right:12px;top:12px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center}
+.card .cv .pl:after{content:"";border-left:10px solid var(--red);border-top:6px solid transparent;border-bottom:6px solid transparent;margin-left:3px}
+.card .cb{padding:10px 12px 12px;font-size:13px;color:var(--soft)}
+.tips{font-size:13px;color:var(--soft);background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-top:22px}
+.tips b{color:var(--ink)}
+footer{color:var(--soft);font-size:12px;text-align:center;margin-top:22px}
+</style>
+</head>
+<body>
+<div class="top"><div class="in">
+  <div>
+    <div class="live">LIVE · ALWAYS THE LATEST VIDEOS</div>
+    <h1 id="hello">Good morning, Glenn</h1>
+    <div class="date" id="today"></div>
+  </div>
+  <div class="streak">连续学习 <b id="streak">0</b> 天 <button class="btn light" id="donebtn">今天学完了 ✓</button></div>
+</div></div>
+
+<div class="wrap">
+
+<!-- 1. NEWS -->
+<section class="sec">
+  <div class="sh">
+    <div><h2><span class="ic" style="background:#c4302b">●</span>今日新闻 · Today's news</h2><p>英国和东南亚新闻频道的最新视频。看 1–2 条就行。</p></div>
+    <div class="tabs" id="newsTabs"></div>
+  </div>
+  <div class="player">
+    <div class="frame" id="newsFrame"></div>
+    <div class="side" id="newsSide"></div>
+  </div>
+</section>
+
+<!-- 2. ENGLISH -->
+<section class="sec">
+  <div class="sh">
+    <div><h2><span class="ic" style="background:#2f7a4f">Aa</span>学英语 · BBC Learning English</h2><p>BBC 英语教学最新节目：6 Minute English、News Review、English at Work……每周都有新的。</p></div>
+    <a class="btn ghost" href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener">文字稿和练习 ↗</a>
+  </div>
+  <div class="player">
+    <div class="frame" id="engFrame"></div>
+    <div class="side">
+      <h3>Learn with the BBC</h3>
+      <div><span class="pill">真人</span><span class="pill">英式</span><span class="pill">有字幕</span></div>
+      <div class="how"><b>怎么学：</b><ol><li>先不看字幕听一遍，猜大意</li><li>开英文字幕再看一遍</li><li>挑 3 句你会用的话，暂停跟读</li></ol></div>
+      <p class="note">点播放器右下角的“列表”图标，可以选这个频道里的其他视频。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3. KNOWLEDGE -->
+<section class="sec">
+  <div class="sh">
+    <div><h2><span class="ic" style="background:#16365f">⚙</span>工程 · 知识 · Ideas & engineering</h2><p>建筑、工程、科学、讲座。每天自动换一个频道，也可以自己点。</p></div>
+    <div class="tabs" id="knowTabs"></div>
+  </div>
+  <div class="player">
+    <div class="frame" id="knowFrame"></div>
+    <div class="side" id="knowSide"></div>
+  </div>
+</section>
+
+<!-- 4. TEACHING & WORK + LIFE -->
+<div class="two">
+  <section class="sec">
+    <div class="sh"><div><h2><span class="ic" style="background:#d39b2a">✎</span>教学 · 工作</h2><p>上课、开会、做报告的真实英语。</p></div></div>
+    <div class="cards" id="workCards"></div>
+  </section>
+  <section class="sec">
+    <div class="sh"><div><h2><span class="ic" style="background:#8a3d6b">☕</span>生活 · 轻松看看</h2><p>英国节目，好看又有生活英语。</p></div></div>
+    <div class="cards" id="lifeCards"></div>
+  </section>
+</div>
+
+<div class="tips"><b>字幕：</b>播放器里字幕已默认打开，没有的话点 <b>CC</b> 按钮。⚙️ → Playback speed → 0.75 可以放慢。<b>全屏：</b>点右下角 ⛶。想要中英双字幕，可以在 YouTube 网页上用 Chrome 插件 <a href="https://chromewebstore.google.com/search/Language%20Reactor" target="_blank" rel="noopener">Language Reactor</a>。</div>
+<footer>All real voices — BBC, Sky News, CNA, The Economist, The B1M, Royal Institution and more · Videos update automatically</footer>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const store = {get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const now = new Date();
+const ymd = d => d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const TODAY = ymd(now);
+const DAY = Math.floor(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) / 86400000);
+$('today').textContent = now.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+const hr = now.getHours();
+$('hello').textContent = (hr < 12 ? 'Good morning' : hr < 18 ? 'Good afternoon' : 'Good evening') + ', Glenn';
+
+/* A channel's "uploads" playlist = channel id with UC -> UU. It always starts with the newest video. */
+const uploads = id => 'UU' + id.slice(2);
+const embed = id => 'https://www.youtube-nocookie.com/embed/videoseries?list=' + uploads(id) + '&cc_load_policy=1&cc_lang_pref=en&hl=en-GB&rel=0&modestbranding=1';
+const chURL = id => 'https://www.youtube.com/channel/' + id + '/videos';
+const CC = '&sp=EgIoAQ%253D%253D';
+const yt = q => 'https://www.youtube.com/results?search_query=' + encodeURIComponent(q) + CC;
+const sounds = q => 'https://www.bbc.co.uk/sounds/search?q=' + encodeURIComponent(q);
+
+const NEWS = [
+ {n:'BBC News', id:'UC16niRr50-MSBwiO3YDb3RA', acc:'英式', zh:'英国广播公司新闻，2–5 分钟一条，国际新闻为主。'},
+ {n:'Sky News', id:'UCoMdktPbSTixAyNGwb-UYkQ', acc:'英式', zh:'英国天空新闻，节奏快，现场报道多。'},
+ {n:'CNA', id:'UC83jt4dlz1Gjl58fzQrrKZg', acc:'新加坡英语', zh:'新加坡亚洲新闻台，东南亚和马来西亚新闻。'},
+ {n:'The Economist', id:'UC0p5jTq6Xx_DosDFxVXnWaQ', acc:'英式', zh:'《经济学人》：经济、科技、国际形势，讲解清楚。'}
+];
+const KNOW = [
+ {n:'The B1M', id:'UC6n8I1UDTKP1IWjQMg6_TwA', acc:'英式', zh:'英国频道，讲全球大型建筑、桥梁、城市项目。每周三更新。'},
+ {n:'Royal Institution', id:'UCYeF244yNGuFefuFKqxIAXw', acc:'英式', zh:'英国皇家研究院的科学讲座。学他们怎么把难的东西讲简单。'},
+ {n:'BBC Earth', id:'UCwmZiChSryoWQCZMIQezgTg', acc:'英式', zh:'大卫·爱登堡等人的自然纪录片，英式旁白最好听。'},
+ {n:'TED-Ed', id:'UCsooa4yRKGN_zEE8iknghZA', acc:'各种口音', zh:'5 分钟动画知识课，字幕准确，话题很广。'},
+ {n:'Tom Scott', id:'UCBa659QWEk1AI4Tg--mrJ2A', acc:'英式', zh:'英国人讲各种奇妙的工程和地理故事，每集 5 分钟左右（已停更，旧视频都很经典）。'}
+];
+const BBCLE = 'UCHaHD477h-FeBbVh9Sh7syA';
+
+const WORK = [
+ {t:'English at Work', s:'BBC Learning English', zh:'经典办公室情景剧：开会、打电话、给意见。', u:'https://www.youtube.com/@bbclearningenglish/search?query=English%20at%20Work', c:['#0f2a4a','#2d5a8c']},
+ {t:'English at University', s:'BBC Learning English', zh:'讲座、讨论、写作，理解学生的世界。', u:'https://www.youtube.com/@bbclearningenglish/search?query=English%20at%20University', c:['#1d4a7a','#4a7fb5']},
+ {t:'Christmas Lectures', s:'Royal Institution', zh:'英国最有名的科普讲座，学怎么讲课。', u:yt('Royal Institution Christmas Lectures'), c:['#5b4bb7','#8a79e0']},
+ {t:'Gresham College', s:'Public lectures, London', zh:'免费公开讲座：工程、AI、气候。学开场。', u:yt('Gresham College lecture engineering'), c:['#7a4f2f','#b07d55']},
+ {t:'The Turing Lectures', s:'Alan Turing Institute', zh:'英国国家 AI 研究所的公开讲座。', u:yt('The Turing Lectures Alan Turing Institute'), c:['#277a8c','#4fb0c4']},
+ {t:'Yes, Minister', s:'BBC comedy', zh:'学英国人怎么礼貌地不同意、委婉地说“不”。', u:yt('Yes Minister'), c:['#8a3d6b','#c06b9c']},
+ {t:'Business English', s:'British Council', zh:'会议、邮件、演讲、谈判，有真人录音和练习。', u:'https://learnenglish.britishcouncil.org/business-english', c:['#2f7a4f','#5fae7f']},
+ {t:'The Life Scientific', s:'BBC Radio 4 · podcast', zh:'采访科学家，听他们怎么简单地讲研究。', u:sounds('The Life Scientific'), c:['#c4302b','#e0705f']}
+];
+const LIFE = [
+ {t:'Grand Designs', s:'Channel 4', zh:'普通人自己设计、建造房子。生活英语加建筑。', u:yt('Grand Designs full episode'), c:['#c0782b','#e3a65d']},
+ {t:'Rick Stein in Malaysia', s:'BBC', zh:'英国名厨在马来西亚吃东西、聊食物。', u:yt('Rick Stein Malaysia'), c:['#a0522d','#d2875a']},
+ {t:'Great British Railway Journeys', s:'BBC', zh:'坐火车游英国，讲历史和铁路，语速慢。', u:yt('Great British Railway Journeys Michael Portillo'), c:['#2f5d50','#5a9a85']},
+ {t:'Word on the Street', s:'British Council', zh:'英国街头采访真人 + 情景短剧。', u:yt('British Council Word on the Street'), c:['#1d4a7a','#4a7fb5']},
+ {t:'Would I Lie to You?', s:'BBC comedy', zh:'猜嘉宾的故事是真是假，全是自然口语。', u:yt('Would I Lie to You best of'), c:['#8a3d6b','#c06b9c']},
+ {t:'QI', s:'BBC quiz show', zh:'知识问答喜剧，又好笑又长知识。', u:yt('QI full episode'), c:['#5b4bb7','#8a79e0']},
+ {t:'In Our Time', s:'BBC Radio 4 · podcast', zh:'三位教授聊一个科学或历史话题，通勤时听。', u:sounds('In Our Time'), c:['#c4302b','#e0705f']},
+ {t:'Desert Island Discs', s:'BBC Radio 4 · podcast', zh:'名人讲自己的人生和最爱的 8 首歌。', u:sounds('Desert Island Discs'), c:['#0f2a4a','#2d5a8c']}
+];
+
+function frame(el, id, title){
+  el.innerHTML = `<iframe src="${embed(id)}" title="${esc(title)}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+}
+function tabbed(list, tabsEl, frameEl, sideEl, key, how){
+  let cur = store.get(key + TODAY, DAY % list.length);
+  const draw = () => {
+    const ch = list[cur];
+    tabsEl.innerHTML = list.map((c,i) => `<button class="tab ${i===cur?'on':''}" data-i="${i}">${esc(c.n)}</button>`).join('');
+    tabsEl.querySelectorAll('.tab').forEach(b => b.onclick = () => { cur = +b.dataset.i; store.set(key + TODAY, cur); draw(); });
+    frame(frameEl, ch.id, ch.n);
+    sideEl.innerHTML = `<h3>${esc(ch.n)}</h3><div><span class="pill">真人</span><span class="pill">口音：${esc(ch.acc)}</span><span class="pill">最新视频</span></div><p style="margin:0">${esc(ch.zh)}</p><div class="how"><b>怎么学：</b><ol>${how.map(h => `<li>${esc(h)}</li>`).join('')}</ol></div><a class="btn ghost" href="${chURL(ch.id)}" target="_blank" rel="noopener">在 YouTube 打开频道 ↗</a>`;
+  };
+  draw();
+}
+tabbed(NEWS, $('newsTabs'), $('newsFrame'), $('newsSide'), 'eh_news_', ['开英文字幕看一条新闻','暂停，用一句英语说：发生了什么？','记下 2 个新词']);
+tabbed(KNOW, $('knowTabs'), $('knowFrame'), $('knowSide'), 'eh_know_', ['开英文字幕看或听','记下 3 个新词','看完用 1 分钟、用英语讲给自己听']);
+frame($('engFrame'), BBCLE, 'BBC Learning English');
+
+function cards(list, el){
+  // rotate order daily so the first cards change
+  const k = DAY % list.length;
+  const L = list.slice(k).concat(list.slice(0, k));
+  el.innerHTML = L.map(it => `<a class="card" href="${it.u}" target="_blank" rel="noopener"><div class="cv" style="background:linear-gradient(130deg,${it.c[0]},${it.c[1]})"><small>${esc(it.s)}</small><b>${esc(it.t)}</b><span class="pl"></span></div><div class="cb">${esc(it.zh)}</div></a>`).join('');
+}
+cards(WORK, $('workCards')); cards(LIFE, $('lifeCards'));
+
+function renderStreak(){
+  const days = store.get('eh_days', {}); let n = 0; const d = new Date(now);
+  if(!days[ymd(d)]) d.setDate(d.getDate()-1);
+  while(days[ymd(d)]){ n++; d.setDate(d.getDate()-1); }
+  $('streak').textContent = n;
+  const b = $('donebtn'); const done = !!days[TODAY];
+  b.textContent = done ? '今天已完成 ✓' : '今天学完了 ✓'; b.className = done ? 'btn ok' : 'btn light';
+}
+$('donebtn').onclick = () => { const days = store.get('eh_days', {}); days[TODAY] = !days[TODAY]; store.set('eh_days', days); renderStreak(); };
+renderStreak();
+</script>
+</body>
+</html>
