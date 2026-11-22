@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Glenn's Daily English</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f2a4a">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
 <link rel="preconnect" href="https://www.youtube.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -235,11 +239,17 @@ function render(){
         <p style="margin:0">${esc(ch.zh)}</p>
         <div class="how"><b>怎么学：</b><ol>${cat.how.map(h => `<li>${esc(h)}</li>`).join('')}</ol></div>
         <div class="gembox"><b>用 Gemini 帮忙</b>（先播放视频）<div class="row">${GEM.map((g,i) => `<button class="btn gem" data-g="${i}">${esc(g.n)}</button>`).join('')}</div></div>
-        <a class="btn ghost" style="align-self:flex-start" href="${chURL(ch.id)}" target="_blank" rel="noopener">在 YouTube 看这个频道 ↗</a>
+        <div style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn" id="openYT">在 YouTube 打开这个视频 ↗</button><a class="btn ghost" href="${chURL(ch.id)}" target="_blank" rel="noopener">看这个频道 ↗</a></div>
+        <p class="note" style="margin:0">播放器里有广告？点上面的按钮，在 YouTube 网站看，会员无广告。</p>
       </div>
     </div>`;
   $('main').querySelectorAll('.chip').forEach(b => b.onclick = () => { store.set(key, +b.dataset.i); player = null; render(); });
   $('main').querySelectorAll('[data-g]').forEach(b => b.onclick = () => askGemini(+b.dataset.g));
+  $('openYT').onclick = () => {
+    const v = currentVideo();
+    if (v) { try { player.pauseVideo(); } catch(e){} window.open(v.u, '_blank', 'noopener'); }
+    else window.open('https://www.youtube.com/playlist?list=' + uploads(ch.id), '_blank', 'noopener');
+  };
   player = null; play(ch);
 }
 
@@ -259,6 +269,7 @@ function renderStreak(){
 $('donebtn').onclick = () => { const days = store.get('eh_days', {}); days[TODAY] = !days[TODAY]; store.set('eh_days', days); renderStreak(); };
 
 render(); renderStreak();
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 </script>
 </body>
 </html>
