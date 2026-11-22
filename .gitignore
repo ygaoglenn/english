@@ -1,0 +1,7 @@
+# Private files: never push to GitHub
+app-key/
+*.keystore
+*.jks
+signing-key-info.txt
+*.apk
+*.aab
